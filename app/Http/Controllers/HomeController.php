@@ -260,7 +260,20 @@ class HomeController extends Controller
         }
         toastr()->success('Payment Succesfully Done');
         toastr()->success('Order Placed Succesfully');
-        return view('home.my_cart');
+        if(Auth::id())
+        {
+            $user = Auth::user();
+            $userid = $user->id;
+            $count = cart::where('user_id',$userid)->count();
+        }
+        else
+        {
+            $count = 0;
+        }
+
+        $cart_order = cart::where('user_id',$user_id)->count();
+        $categorys = Category::all();
+        return view('home.my_cart',compact('count','cart_order','cart','user','categorys'));
     }
 
     public function serach_product(Request $request)
