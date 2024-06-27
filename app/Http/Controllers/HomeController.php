@@ -210,7 +210,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $user_name = $user->name;
         $user_id = $user->id;
-        $order = Order::where('user_id',$user_id)->get();
+        $order = Order::where('user_id',$user_id)->orderBy('updated_at','DESC')->get();
         $user_order = Order::where('user_id',$user_id)->count();
         $categorys = Category::all();
         return view('home.my_order',compact('count','user_name','order','categorys','user_order',));    
