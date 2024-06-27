@@ -98,14 +98,27 @@ class HomeController extends Controller
     public function add_cart($id)
     {
         $product_id = $id;
-        $user = Auth::user();
-        $user_id = $user->id;
-        $data = new cart;
-        $data->user_id = $user_id;
-        $data->product_id = $product_id;
-        $data->save();
-        toastr()->success('Product Added In The Cart Succesfully');
-        return redirect()->back();
+        $product = product::find($id);
+        if($product)
+        {
+            $qty = $product->quantity;
+            if($qty == 0)
+            {
+                toastr()->error('Sorry, Product Is Out Of Stock');
+                return redirect()->back();
+            }
+            else
+            {
+                $user = Auth::user();
+                $user_id = $user->id;
+                $data = new cart;
+                $data->user_id = $user_id;
+                $data->product_id = $product_id;
+                $data->save();
+                toastr()->success('Product Added In The Cart Succesfully');
+                return redirect()->back();
+            }
+        }
     }
 
     public function my_cart()
@@ -170,7 +183,14 @@ class HomeController extends Controller
         {
             $data = cart::find($remove->id);
             $data->delete();
+
+            $product = Product::find($remove->product_id);
+            if ($product) {
+                $product->quantity -= 1;
+                $product->save();
+            }
         }
+
         toastr()->success('Order Placed Succesfully');
         return redirect()->back();
     }
