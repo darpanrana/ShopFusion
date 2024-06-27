@@ -26,8 +26,6 @@ This is an e-commerce web application built using the Laravel framework. The app
 - Browse products and add them to your shopping cart.
 - Proceed to checkout and complete the order.
 - Admin users can log in to the admin dashboard to manage products, orders, and users.
-<<<<<<< HEAD
-=======
 
 ## Screenshot
 
@@ -48,5 +46,3 @@ This is an e-commerce web application built using the Laravel framework. The app
 ![Screenshot (252)](https://github.com/darpanrana/ShopFusion/assets/123465900/f1844da3-b221-4efe-98ac-724becffc3ff)
 
 ![Screenshot (253)](https://github.com/darpanrana/ShopFusion/assets/123465900/c608058f-5f5d-4bf7-8f10-99e163ce756c)
-
->>>>>>> 6186f09d772520b8dc4a7aa509abeefd0e6a62a5
