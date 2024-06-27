@@ -131,7 +131,7 @@
                           @csrf
                           <div class="mb-3">
                               <label for="inputname">Name</label>
-                              <input type="text" value="{{ $user->name }}" class="form-control" id="name" name="name" placeholder="Enter Name" disabled>
+                              <input type="text" value="{{ $user->name }}" class="form-control" id="name" name="name" placeholder="Enter Name">
                               <span class="text-danger">
                                 @error('name')
                                     {{$message}}
@@ -141,7 +141,7 @@
 
                           <div class="mb-3">
                               <label for="inputname">Address</label>
-                              <textarea name="address" placeholder="Enter Address" class="form-control" id="" cols="30" rows="4" disabled >{{ $user->address }}</textarea>
+                              <textarea name="address" placeholder="Enter Address" class="form-control" id="" cols="30" rows="4">{{ $user->address }}</textarea>
                               <span class="text-danger">
                                 @error('address')
                                     {{$message}}
@@ -151,7 +151,7 @@
 
                           <div class="mb-3">
                               <label for="inputname">Phone</label>
-                              <input type="text" value="{{ $user->phone }}" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number" disabled >
+                              <input type="text" value="{{ $user->phone }}" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
                               <span class="text-danger">
                                 @error('phone')
                                     {{$message}}
